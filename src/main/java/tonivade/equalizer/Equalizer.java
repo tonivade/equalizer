@@ -24,9 +24,8 @@ public class Equalizer<T> {
         return this;
     }
 
-    @Override
     @SuppressWarnings("unchecked")
-    public boolean equals(Object obj) {
+    public boolean equalsTo(Object obj) {
         if (isNull(obj)) {
             return false;
         }

@@ -29,5 +29,5 @@ Equalizer tries to solve this problem:
         return equalizer(this)
                 .test((one, other) -> Objects.equals(one.id, other.id))
                     .test((one, other) -> Objects.equals(one.value, other.value))
-                        .equals(obj);
+                        .equalsTo(obj);
     }
