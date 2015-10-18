@@ -31,3 +31,5 @@ Equalizer tries to solve this problem:
                     .test((one, other) -> Objects.equals(one.value, other.value))
                         .equalsTo(obj);
     }
+
+[![Build Status](https://drone.io/github.com/tonivade/equalizer/status.png)](https://drone.io/github.com/tonivade/equalizer/latest)
