@@ -9,6 +9,7 @@ import static java.util.Objects.requireNonNull;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.function.BiFunction;
 
 public class Equalizer<T> {
 
@@ -42,9 +43,9 @@ public class Equalizer<T> {
         boolean areEquals = false;
         Iterator<Tester<T>> iterator = testers.iterator();
         if (iterator.hasNext()) {
-            areEquals = iterator.next().test(target, other);
+            areEquals = iterator.next().apply(target, other);
             while (iterator.hasNext()) {
-                areEquals &= iterator.next().test(target, other);
+                areEquals &= iterator.next().apply(target, other);
                 if (!areEquals) {
                     break;
                 }
@@ -70,7 +71,6 @@ public class Equalizer<T> {
     }
 
     @FunctionalInterface
-    public static interface Tester<T> {
-        boolean test(T a, T b);
+    public static interface Tester<T> extends BiFunction<T, T, Boolean> {
     }
 }
