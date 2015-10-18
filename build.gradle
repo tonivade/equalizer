@@ -6,13 +6,13 @@ group = 'tonivade'
 version = '0.1.1'
 
 buildscript {
-     repositories {
-         jcenter()
-     }
-     dependencies {
-         classpath 'com.bmuschko:gradle-nexus-plugin:2.3.1'
-     }
- }
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.bmuschko:gradle-nexus-plugin:2.3.1'
+    }
+}
 
 sourceSets {
     main {
@@ -39,45 +39,45 @@ dependencies {
     testCompile 'nl.jqno.equalsverifier:equalsverifier:1.7.5'
 }
 
- modifyPom {
-     project {
-         name 'Equalizer'
-         description 'Java Helper class to create nice equals methods'
-         url 'https://github.com/tonivade/equalizer'
-         inceptionYear '2015'
+modifyPom {
+    project {
+        name 'Equalizer'
+        description 'Java Helper class to create nice equals methods'
+        url 'https://github.com/tonivade/equalizer'
+        inceptionYear '2015'
 
-         scm {
-             url 'https://github.com/tonivade/equalizer'
-             connection 'scm:https://github.com/tonivade/equalizer.git'
-             developerConnection 'scm:git://github.com/tonivade/equalizer.git'
-         }
+        scm {
+            url 'https://github.com/tonivade/equalizer'
+            connection 'scm:https://github.com/tonivade/equalizer.git'
+            developerConnection 'scm:git://github.com/tonivade/equalizer.git'
+        }
 
-         licenses {
-             license {
-                 name 'The MIT License (MIT)'
-                 url 'https://github.com/tonivade/equalizer/blob/master/LICENSE'
-                 distribution 'repo'
-             }
-         }
+        licenses {
+            license {
+                name 'The MIT License (MIT)'
+                url 'https://github.com/tonivade/equalizer/blob/master/LICENSE'
+                distribution 'repo'
+            }
+        }
 
-         developers {
-             developer {
-                 id 'tonivade'
-                 name 'Antonio Muñoz'
-                 email 'antoniogmc@gmail.com'
-             }
-         }
-     }
- }
+        developers {
+            developer {
+                id 'tonivade'
+                name 'Antonio Muñoz'
+                email 'antoniogmc@gmail.com'
+            }
+        }
+    }
+}
 
- extraArchive {
-     sources = false
-     tests = true
-     javadoc = false
- }
+extraArchive {
+    sources = true
+    tests = false
+    javadoc = false
+}
 
- nexus {
-     sign = false
-     repositoryUrl = 'http://garagemarket.com.es/nexus/content/repositories/releases/'
-     snapshotRepositoryUrl = 'http://garagemarket.com.es/nexus/content/repositories/snapshots/'
- }
+nexus {
+    sign = false
+    repositoryUrl = 'http://garagemarket.com.es/nexus/content/repositories/releases/'
+    snapshotRepositoryUrl = 'http://garagemarket.com.es/nexus/content/repositories/snapshots/'
+}
