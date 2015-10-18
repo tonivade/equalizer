@@ -34,9 +34,9 @@ public final class Data {
     @Override
     public boolean equals(Object obj) {
         return equalizer(this)
-                .test((one, other) -> Objects.equals(one.id, other.id))
-                    .test((one, other) -> Objects.equals(one.value, other.value))
-                        .equalsTo(obj);
+                .append((one, other) -> Objects.equals(one.id, other.id))
+                    .append((one, other) -> Objects.equals(one.value, other.value))
+                        .applyTo(obj);
     }
 
     @Override

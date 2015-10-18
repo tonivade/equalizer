@@ -19,13 +19,13 @@ public class Equalizer<T> {
         this.target = requireNonNull(target);
     }
 
-    public Equalizer<T> test(Tester<T> tester) {
+    public Equalizer<T> append(Tester<T> tester) {
         this.testers.add(requireNonNull(tester));
         return this;
     }
 
     @SuppressWarnings("unchecked")
-    public boolean equalsTo(Object obj) {
+    public boolean applyTo(Object obj) {
         if (isNull(obj)) {
             return false;
         }

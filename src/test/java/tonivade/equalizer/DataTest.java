@@ -33,12 +33,17 @@ public class DataTest {
     }
 
     @Test
-    public void sameObjects()  {
+    public void sameObjects() {
         assertThat(data1, equalTo(data1));
     }
 
     @Test
-    public void differentClasses()  {
+    public void differentClasses() {
         assertThat(data1, not(equalTo(new Object())));
+    }
+
+    @Test
+    public void notEqualsToNull() {
+        assertThat(data1, not(equalTo(null)));
     }
 }
