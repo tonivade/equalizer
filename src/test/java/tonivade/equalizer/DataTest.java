@@ -18,17 +18,27 @@ public class DataTest {
     private Data data3 = new Data(2, "value");
 
     @Test
-    public void equalsContract() throws Exception {
+    public void equalsContract() {
         EqualsVerifier.forClass(Data.class).verify();
     }
 
     @Test
-    public void areEquals() throws Exception {
+    public void areEquals() {
         assertThat(data1, equalTo(data2));
     }
 
     @Test
-    public void notEquals() throws Exception {
+    public void notEquals() {
         assertThat(data1, not(equalTo(data3)));
+    }
+
+    @Test
+    public void sameObjects()  {
+        assertThat(data1, equalTo(data1));
+    }
+
+    @Test
+    public void differentClasses()  {
+        assertThat(data1, not(equalTo(new Object())));
     }
 }
