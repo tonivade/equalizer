@@ -6,7 +6,6 @@ package tonivade.equalizer;
 
 import static java.util.Objects.requireNonNull;
 
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.function.BiFunction;
@@ -40,18 +39,7 @@ public class Equalizer<T> {
     }
 
     private boolean areEquals(T other) {
-        boolean areEquals = false;
-        Iterator<Tester<T>> iterator = testers.iterator();
-        if (iterator.hasNext()) {
-            areEquals = iterator.next().apply(target, other);
-            while (iterator.hasNext()) {
-                areEquals &= iterator.next().apply(target, other);
-                if (!areEquals) {
-                    break;
-                }
-            }
-        }
-        return areEquals;
+        return testers.stream().allMatch(t -> t.apply(target, other));
     }
 
     private boolean isNull(Object obj) {
