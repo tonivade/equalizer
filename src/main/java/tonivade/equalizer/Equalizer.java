@@ -26,16 +26,10 @@ public class Equalizer<T> {
 
     @SuppressWarnings("unchecked")
     public boolean applyTo(Object obj) {
-        if (isNull(obj)) {
+        if (isNull(obj) && !sameObjects(obj)) {
             return false;
         }
-        if (sameObjects(obj)) {
-            return true;
-        }
-        if (!sameClasses(obj)) {
-            return false;
-        }
-        return areEquals((T) obj);
+        return sameClasses(obj) && areEquals((T) obj);
     }
 
     private boolean areEquals(T other) {
@@ -55,10 +49,10 @@ public class Equalizer<T> {
     }
 
     public static <T> Equalizer<T> equalizer(T target) {
-        return new Equalizer<T>(target);
+        return new Equalizer<>(target);
     }
 
     @FunctionalInterface
-    public static interface Tester<T> extends BiFunction<T, T, Boolean> {
+    public interface Tester<T> extends BiFunction<T, T, Boolean> {
     }
 }
