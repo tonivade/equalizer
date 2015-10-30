@@ -1,7 +1,9 @@
 /bin/
+.idea
 .gradle
 .settings
 .project
 .classpath
 gradle.properties
 build
+*.iml
