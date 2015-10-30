@@ -26,8 +26,11 @@ public class Equalizer<T> {
 
     @SuppressWarnings("unchecked")
     public boolean applyTo(Object obj) {
-        if (isNull(obj) && !sameObjects(obj)) {
+        if (isNull(obj)) {
             return false;
+        }
+        if (sameObjects(obj)) {
+            return true;
         }
         return sameClasses(obj) && areEquals((T) obj);
     }
