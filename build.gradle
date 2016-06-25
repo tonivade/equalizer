@@ -2,8 +2,9 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'com.bmuschko.nexus'
 
-group = 'tonivade'
-version = '0.1.2'
+group = 'com.github.tonivade'
+archivesBaseName = 'equalizer'
+version = '0.2.0'
 
 buildscript {
     repositories {
@@ -78,6 +79,6 @@ extraArchive {
 
 nexus {
     sign = false
-    repositoryUrl = 'http://garagemarket.com.es/nexus/content/repositories/releases/'
-    snapshotRepositoryUrl = 'http://garagemarket.com.es/nexus/content/repositories/snapshots/'
+    repositoryUrl = 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
+    snapshotRepositoryUrl = 'https://oss.sonatype.org/content/repositories/snapshots'
 }
