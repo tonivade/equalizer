@@ -4,12 +4,18 @@
  */
 package tonivade.equalizer;
 
+import static java.util.Arrays.asList;
+import static java.util.stream.Collectors.toList;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertThat;
-import nl.jqno.equalsverifier.EqualsVerifier;
+import static tonivade.comparalizer.Comparalizer.comparalizer;
+
+import java.util.Comparator;
 
 import org.junit.Test;
+
+import nl.jqno.equalsverifier.EqualsVerifier;
 
 public class DataTest {
 
@@ -45,5 +51,40 @@ public class DataTest {
     @Test
     public void notEqualsToNull() {
         assertThat(data1, not(equalTo(null)));
+    }
+
+    @Test
+    public void compareEquals() {
+        assertThat(0, equalTo(comparalizer(data1).append(byId())
+                .append(byValue()).applyTo(data2)));
+    }
+
+    @Test
+    public void compareLower() {
+        assertThat(-1, equalTo(comparalizer(data1).append(byId())
+                .append(byValue()).applyTo(data3)));
+    }
+
+    @Test
+    public void compareGreater() {
+        assertThat(1, equalTo(comparalizer(data3).append(byId())
+                .append(byValue()).applyTo(data1)));
+    }
+
+    @Test
+    public void sort() {
+        assertThat(
+                asList(data1, data2, data3),
+                equalTo(asList(data2, data3, data1).stream()
+                        .sorted(byId().thenComparing(byValue()))
+                        .collect(toList())));
+    }
+
+    private Comparator<Data> byId() {
+        return (a, b) -> a.getId() - b.getId();
+    }
+
+    private Comparator<Data> byValue() {
+        return (a, b) -> a.getValue().compareTo(b.getValue());
     }
 }
