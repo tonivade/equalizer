@@ -4,6 +4,6 @@ jdk:
   - oraclejdk8
 branches:
  only:
-  - develop
+  - master
 install: ./gradlew clean build
 script: ./gradlew test
