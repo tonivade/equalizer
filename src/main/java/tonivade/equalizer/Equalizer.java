@@ -4,6 +4,7 @@
  */
 package tonivade.equalizer;
 
+import static java.util.Objects.isNull;
 import static java.util.Objects.requireNonNull;
 
 import java.util.LinkedList;
@@ -37,10 +38,6 @@ public class Equalizer<T> {
 
     private boolean areEquals(T other) {
         return testers.stream().allMatch(t -> t.apply(target, other));
-    }
-
-    private boolean isNull(Object obj) {
-        return obj == null;
     }
 
     private boolean sameClasses(Object obj) {

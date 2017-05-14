@@ -7,15 +7,18 @@ package tonivade.equalizer;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertThat;
-import nl.jqno.equalsverifier.EqualsVerifier;
 
 import org.junit.Test;
 
+import nl.jqno.equalsverifier.EqualsVerifier;
+
 public class DataTest {
 
-    private Data data1 = new Data(1, "value");
-    private Data data2 = new Data(1, "value");
-    private Data data3 = new Data(2, "value");
+    private static final String VALUE = "value";
+
+    private Data data1 = new Data(1, VALUE);
+    private Data data2 = new Data(1, VALUE);
+    private Data data3 = new Data(2, VALUE);
 
     @Test
     public void equalsContract() {

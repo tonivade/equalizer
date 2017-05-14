@@ -1,11 +1,12 @@
 apply plugin: 'java'
 apply plugin: 'signing'
 apply plugin: 'eclipse'
+apply plugin: 'jacoco'
 apply plugin: 'com.bmuschko.nexus'
 
 group = 'com.github.tonivade'
 archivesBaseName = 'equalizer'
-version = '0.2.0'
+version = '0.3.0-SNAPSHOT'
 
 buildscript {
     repositories {
