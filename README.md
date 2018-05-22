@@ -27,9 +27,9 @@ Equalizer tries to solve this problem:
     @Override
     public boolean equals(Object obj) {
         return equalizer(this)
-                .append((one, other) -> Objects.equals(one.id, other.id))
-                    .append((one, other) -> Objects.equals(one.value, other.value))
-                        .applyTo(obj);
+            .append((one, other) -> Objects.equals(one.id, other.id))
+            .append((one, other) -> Objects.equals(one.value, other.value))
+            .applyTo(obj);
     }
 
 [![Build Status](https://drone.io/github.com/tonivade/equalizer/status.png)](https://drone.io/github.com/tonivade/equalizer/latest)

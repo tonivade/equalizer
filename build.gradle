@@ -9,78 +9,65 @@ archivesBaseName = 'equalizer'
 version = '0.3.0-SNAPSHOT'
 
 buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.bmuschko:gradle-nexus-plugin:2.3.1'
-    }
-}
-
-sourceSets {
-    main {
-        java {
-            srcDirs = ['src/main/java']
-        }
-    }
-    test {
-        java {
-            srcDirs = ['src/test/java']
-        }
-    }
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'com.bmuschko:gradle-nexus-plugin:2.3.1'
+  }
 }
 
 sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
 
 repositories {
-    mavenCentral()
+  mavenCentral()
 }
 
 dependencies {
-    testCompile 'junit:junit:4.12'
-    testCompile 'nl.jqno.equalsverifier:equalsverifier:1.7.5'
+  testCompile 'junit:junit:4.12'
+  testCompile 'nl.jqno.equalsverifier:equalsverifier:1.7.5'
 }
 
 modifyPom {
-    project {
-        name 'Equalizer'
-        description 'Java Helper class to create nice equals methods'
-        url 'https://github.com/tonivade/equalizer'
-        inceptionYear '2015'
+  project {
+    name 'Equalizer'
+    description 'Java Helper class to create nice equals methods'
+    url 'https://github.com/tonivade/equalizer'
+    inceptionYear '2015'
 
-        scm {
-            url 'https://github.com/tonivade/equalizer'
-            connection 'scm:https://github.com/tonivade/equalizer.git'
-            developerConnection 'scm:git://github.com/tonivade/equalizer.git'
-        }
-
-        licenses {
-            license {
-                name 'The MIT License (MIT)'
-                url 'https://github.com/tonivade/equalizer/blob/master/LICENSE'
-                distribution 'repo'
-            }
-        }
-
-        developers {
-            developer {
-                id 'tonivade'
-                name 'Antonio Muñoz'
-                email 'antoniogmc@gmail.com'
-            }
-        }
+    scm {
+      url 'https://github.com/tonivade/equalizer'
+      connection 'scm:https://github.com/tonivade/equalizer.git'
+      developerConnection 'scm:git://github.com/tonivade/equalizer.git'
     }
+
+    licenses {
+      license {
+        name 'The MIT License (MIT)'
+        url 'https://github.com/tonivade/equalizer/blob/master/LICENSE'
+        distribution 'repo'
+      }
+    }
+
+    developers {
+      developer {
+        id 'tonivade'
+        name 'Antonio Muñoz'
+        email 'antoniogmc@gmail.com'
+      }
+    }
+  }
 }
 
 extraArchive {
-    sources = true
-    tests = false
-    javadoc = true 
+  sources = true
+  tests = false
+  javadoc = true 
 }
 
 nexus {
-    sign = true
-    repositoryUrl = 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
-    snapshotRepositoryUrl = 'https://oss.sonatype.org/content/repositories/snapshots'
+  sign = true
+  repositoryUrl = 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
+  snapshotRepositoryUrl = 'https://oss.sonatype.org/content/repositories/snapshots'
 }
